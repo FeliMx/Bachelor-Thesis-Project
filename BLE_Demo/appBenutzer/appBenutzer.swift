@@ -15,7 +15,6 @@ class appBenutzer {
     
     
     func addSchloss(withIndex aIndex: String, andSerialNummer aSerialNummer: String, andName aName: String, andBeschreibung aBeschreibung: String){
-        self.schlossAnzahl += 1
         var aSchloss = Schloss()
         aSchloss.index = aIndex
         aSchloss.serialNummer = aSerialNummer
@@ -35,6 +34,7 @@ class appBenutzer {
         print("Benutzer: \(self.Benutzername) hat \(String(schlossAnzahl)) Schlössen, sind: ")
         self.printSchloss()
     }
+    
     
 
 }

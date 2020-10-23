@@ -9,15 +9,12 @@
 import UIKit
 import SwiftSocket
 
-protocol BenutzerDelegate {
-    func benutzerTransmission(witheBenutzer aBenutzer: appBenutzer)
-}
-
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, SchlosslistDelegate {
     
     var socketClient: TCPClient?
     var benutzer = appBenutzer()
-    var benutzerDelegate: BenutzerDelegate?
+    
+    var rightLogin = false
     
     @IBOutlet weak var benutzername: UITextField!
     @IBOutlet weak var passwort: UITextField!
@@ -27,14 +24,31 @@ class LoginViewController: UIViewController {
         let Passwort: String! = passwort!.text
         self.benutzer.Benutzername = Benutzername
         
-       // let dd: [UInt8] = [50,44,49,50,44,49,50,51,52,53,54,55,56,44,76,97,116,99,104,49,44,76,97,116,99,104,32,97,110,32,66,117,101,114,111,35]
-       // self.infoFragen(data: dd)
-        
         processClientSocket(Benutzername: Benutzername!, Passwort: Passwort!)
+        
+        self.navigationController?.performSegue(withIdentifier: "showList", sender: nil)
+    }
+    
+    //transmit the benutzer data to the second page
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showList" else {
+            return
+        }
+        
+        let nc = segue.destination as! UINavigationController
+        let nfc = nc.childViewControllers.first as! SchlosslistViewController
+        nfc.thisBenutzer = benutzer
+        nfc.delegate = self
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return rightLogin
     }
     
     
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
     }
 
@@ -43,48 +57,45 @@ class LoginViewController: UIViewController {
     }
     
     func processClientSocket(Benutzername b: String!, Passwort p: String!){
-        socketClient = TCPClient(address: "192.168.110.137", port: 1983)
-        
-        
+        socketClient = TCPClient(address: "*.*.*.*", port: 1983)
+        // connect to the scoket with IP Address *.*.*.* and port number 1983
 
         switch self.socketClient!.connect(timeout: 1) {
         case .success:
-            DispatchQueue.main.async {
+           /* DispatchQueue.main.async {
                 self.alert(msg: "connect success", after: {})
-            }
+            }*/
             
             let msgtosend0 = "0,\(b!),\(p!)#"
             _ = self.socketClient!.send(string: msgtosend0)
             print(msgtosend0)
             // send Benutzername und Passwort to Webserver
-            while true {
+                
+                
+            while self.benutzer.schlossList.count != self.benutzer.schlossAnzahl {
                 if let receiveData = self.socketClient!.read(1024 * 10) {
-                    
                     self.processList(withData: receiveData)
                 }
-                if self.benutzer.schlossList.count == self.benutzer.schlossAnzahl { break }
+                
+                self.benutzer.printBenutzer()
             }
             
+            self.rightLogin = true
+            
+            
+     
         case .failure(let error):
             DispatchQueue.main.async {
                 self.alert(msg: error.localizedDescription, after: {})
             }
         }
         
-        
-        /*let receiveData0 = socketClient?.read(1024 * 10)
-        //received data from server
-        
-        if receiveData0![0] == 0 && receiveData0![3] == 0{
-                _ = self.socketClient!.send(string: "1")
-                let receiveData1 = self.socketClient?.read(1024 * 10)
-                let count = Int(receiveData1![2])
-                processList(count: count)
-        }*/
     }
     
     
+    // MARK: Process Incoming Message
     func processList(withData raData: [Byte]) {
+        // process the comming message
         
         var msg: String = ""
         for s in raData {
@@ -94,22 +105,29 @@ class LoginViewController: UIViewController {
         
         switch raData[0] {
         case 48:
+            // CMD_LOGIN
             self.anmelden(data: raData)
+            
         case 49:
+            //CMD_GET_NUMBER_OF_LATCHES
             self.anzahlFragen(data: raData)
+            
         case 50:
+            //CMD_GET_INFO_LATCH
             self.infoFragen(data: raData)
+            
         default:
-            self.alert(msg: "Wrong Data", after: {})
+            self.alert(msg: "Falsch Data", after: {})
         }
         
     }
     
     func anmelden(data aData: [Byte]) {
         if aData[2] == 48 {
-            self.alert(msg: "Login success", after: {})
+            rightLogin = true
             _ = self.socketClient!.send(string: "1#")
         } else {
+            self.rightLogin = false
             self.alert(msg: "Benutzername oder Passwort falsch!", after: {})
         }
     }
@@ -118,20 +136,23 @@ class LoginViewController: UIViewController {
         var anzahl : Int = 0
         if aData[3] == 35 {
             anzahl = Int(aData[2]) - 48
+            print("\(anzahl)")
         } else if aData[4] == 35 {
             anzahl = (Int(aData[2]) - 48) * 10 + Int(aData[3]) - 48
         } else if aData[5] == 35 {
             anzahl = (Int(aData[2]) - 48) * 100 + (Int(aData[3]) - 48) * 10 + Int(aData[4]) - 48
         } else {
-            self.alert(msg: "Wrong!", after:{})
+            self.alert(msg: "Falsch!", after:{})
         }
         
         self.benutzer.schlossAnzahl = anzahl
+        print("\(self.benutzer.schlossAnzahl)")
         
         for n in 0...(anzahl - 1) {
             _ = self.socketClient?.send(string: "2,\(n)#")
             while true {
                 if let receiveData = self.socketClient!.read(1024 * 10) {
+                    
                     var msg: String = ""
                     for s in receiveData {
                         msg += String(UnicodeScalar(s))
@@ -139,9 +160,10 @@ class LoginViewController: UIViewController {
                     print(msg)
                     
                     infoFragen(data: receiveData)
+                    
                     break
+                    // after process a information break this while-loop and continue next for-loop
                 }
-                
             }
         }
     }
@@ -177,7 +199,7 @@ class LoginViewController: UIViewController {
             aName += String(UnicodeScalar(aData[m]))
         }
         
-        // get Beschreibung in the Infromation
+        // get Beschreibung in the received Infromation
         var aBeschreibung: String = ""
         var con = cou + 1
         while aData[con] != 35 {
@@ -201,7 +223,11 @@ class LoginViewController: UIViewController {
             alertController.dismiss(animated: false, completion: nil)
         }
     }
-
-
+    
+    // MARK: - SchlosslistDelegate
+    func abmelden() {
+        _ = self.socketClient?.close()
+    }
+    
 }
 

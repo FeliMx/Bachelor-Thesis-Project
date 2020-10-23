@@ -34,7 +34,7 @@ protocol SchlosslistDelegate {
     func abmelden()
 }
 
-class SchlosslistViewControler: UIViewController, CBCentralManagerDelegate, UITableViewDelegate, UITableViewDataSource, BluetoothManagerDelegate {
+class SchlosslistViewController: UIViewController, CBCentralManagerDelegate, UITableViewDelegate, UITableViewDataSource, BluetoothManagerDelegate {
     
     let dfuServiceUUIDString    = "00001530-1212-EFDE-1523-785FEABCD123"
     let ANCSServiceUUIDString   = "7905F431-B5CE-4E99-A40F-4B1E122D00D0"

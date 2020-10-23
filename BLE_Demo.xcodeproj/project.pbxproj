@@ -7,16 +7,59 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		027B09E5211FA97900DB2A09 /* SwiftSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 027B09DE211FA95100DB2A09 /* SwiftSocket.framework */; };
+		027B09E6211FA97900DB2A09 /* SwiftSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 027B09DE211FA95100DB2A09 /* SwiftSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C9A4668210EF6F000BEFA88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A4667210EF6F000BEFA88 /* AppDelegate.swift */; };
-		1C9A466A210EF6F000BEFA88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A4669210EF6F000BEFA88 /* ViewController.swift */; };
+		1C9A466A210EF6F000BEFA88 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A4669210EF6F000BEFA88 /* LoginViewController.swift */; };
 		1C9A466D210EF6F000BEFA88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C9A466B210EF6F000BEFA88 /* Main.storyboard */; };
 		1C9A466F210EF6F300BEFA88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C9A466E210EF6F300BEFA88 /* Assets.xcassets */; };
 		1C9A4672210EF6F300BEFA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C9A4670210EF6F300BEFA88 /* LaunchScreen.storyboard */; };
 		1C9A467D210EF6F300BEFA88 /* BLE_DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A467C210EF6F300BEFA88 /* BLE_DemoTests.swift */; };
 		1C9A4688210EF6F400BEFA88 /* BLE_DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A4687210EF6F400BEFA88 /* BLE_DemoUITests.swift */; };
+		1C9A46C3210F5A6300BEFA88 /* appBenutzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A46C2210F5A6300BEFA88 /* appBenutzer.swift */; };
+		1C9A46CA2111894000BEFA88 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A46C92111894000BEFA88 /* BluetoothManager.swift */; };
+		1C9A46D0211192C800BEFA88 /* SchlosslistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A46CF211192C800BEFA88 /* SchlosslistViewController.swift */; };
+		1C9A46D221119A1300BEFA88 /* EPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A46D121119A1300BEFA88 /* EPeripheral.swift */; };
+		1C9A46D721119B1200BEFA88 /* EData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A46D621119B1200BEFA88 /* EData.swift */; };
+		1C9A46D921119B4E00BEFA88 /* EServiceIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9A46D821119B4E00BEFA88 /* EServiceIdentifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		027B09DD211FA95100DB2A09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 027B09D6211FA94E00DB2A09 /* SwiftSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 377DAA691DCDE40200009697;
+			remoteInfo = "SwiftSocket iOS";
+		};
+		027B09DF211FA95100DB2A09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 027B09D6211FA94E00DB2A09 /* SwiftSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 377DAA761DCDE45D00009697;
+			remoteInfo = "SwiftSocket macOS";
+		};
+		027B09E1211FA95100DB2A09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 027B09D6211FA94E00DB2A09 /* SwiftSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 37454ECA1E06158200800AE5;
+			remoteInfo = "SwiftSocket tvOS";
+		};
+		027B09E3211FA95100DB2A09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 027B09D6211FA94E00DB2A09 /* SwiftSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 375C482D1DDC4C56008C701D;
+			remoteInfo = "iOS Example";
+		};
+		027B09E7211FA97900DB2A09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 027B09D6211FA94E00DB2A09 /* SwiftSocket.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 377DAA681DCDE40200009697;
+			remoteInfo = "SwiftSocket iOS";
+		};
 		1C9A4679210EF6F300BEFA88 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1C9A465C210EF6F000BEFA88 /* Project object */;
@@ -33,10 +76,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		027B09E9211FA97900DB2A09 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				027B09E6211FA97900DB2A09 /* SwiftSocket.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		027B09D6211FA94E00DB2A09 /* SwiftSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSocket.xcodeproj; path = "SwiftSocket-master/SwiftSocket.xcodeproj"; sourceTree = "<group>"; };
 		1C9A4664210EF6F000BEFA88 /* BLE_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLE_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9A4667210EF6F000BEFA88 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C9A4669210EF6F000BEFA88 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1C9A4669210EF6F000BEFA88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1C9A466C210EF6F000BEFA88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C9A466E210EF6F300BEFA88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C9A4671210EF6F300BEFA88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +105,12 @@
 		1C9A4683210EF6F300BEFA88 /* BLE_DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BLE_DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9A4687210EF6F400BEFA88 /* BLE_DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_DemoUITests.swift; sourceTree = "<group>"; };
 		1C9A4689210EF6F400BEFA88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C9A46C2210F5A6300BEFA88 /* appBenutzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appBenutzer.swift; sourceTree = "<group>"; };
+		1C9A46C92111894000BEFA88 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		1C9A46CF211192C800BEFA88 /* SchlosslistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchlosslistViewController.swift; sourceTree = "<group>"; };
+		1C9A46D121119A1300BEFA88 /* EPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPeripheral.swift; sourceTree = "<group>"; };
+		1C9A46D621119B1200BEFA88 /* EData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EData.swift; sourceTree = "<group>"; };
+		1C9A46D821119B4E00BEFA88 /* EServiceIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EServiceIdentifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				027B09E5211FA97900DB2A09 /* SwiftSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +139,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		027B09D7211FA94E00DB2A09 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				027B09DE211FA95100DB2A09 /* SwiftSocket.framework */,
+				027B09E0211FA95100DB2A09 /* SwiftSocket.framework */,
+				027B09E2211FA95100DB2A09 /* SwiftSocket.framework */,
+				027B09E4211FA95100DB2A09 /* iOS Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		1C9A465B210EF6F000BEFA88 = {
 			isa = PBXGroup;
 			children = (
+				027B09D6211FA94E00DB2A09 /* SwiftSocket.xcodeproj */,
 				1C9A4666210EF6F000BEFA88 /* BLE_Demo */,
 				1C9A467B210EF6F300BEFA88 /* BLE_DemoTests */,
 				1C9A4686210EF6F300BEFA88 /* BLE_DemoUITests */,
@@ -97,12 +174,15 @@
 		1C9A4666210EF6F000BEFA88 /* BLE_Demo */ = {
 			isa = PBXGroup;
 			children = (
-				1C9A4667210EF6F000BEFA88 /* AppDelegate.swift */,
-				1C9A4669210EF6F000BEFA88 /* ViewController.swift */,
-				1C9A466B210EF6F000BEFA88 /* Main.storyboard */,
+				1C9A46C52111890000BEFA88 /* Storyboard */,
+				1C9A46CC21118DAD00BEFA88 /* Login */,
+				1C9A46CE2111929900BEFA88 /* Schlosslist */,
+				1C9A46CB2111896100BEFA88 /* BluetoothManager */,
+				1C9A46CD21118DC600BEFA88 /* appBenutzer */,
+				1C9A46D521119AF000BEFA88 /* Utilities */,
 				1C9A466E210EF6F300BEFA88 /* Assets.xcassets */,
-				1C9A4670210EF6F300BEFA88 /* LaunchScreen.storyboard */,
 				1C9A4673210EF6F300BEFA88 /* Info.plist */,
+				1C9A4667210EF6F000BEFA88 /* AppDelegate.swift */,
 			);
 			path = BLE_Demo;
 			sourceTree = "<group>";
@@ -125,6 +205,57 @@
 			path = BLE_DemoUITests;
 			sourceTree = "<group>";
 		};
+		1C9A46C52111890000BEFA88 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1C9A466B210EF6F000BEFA88 /* Main.storyboard */,
+				1C9A4670210EF6F300BEFA88 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		1C9A46CB2111896100BEFA88 /* BluetoothManager */ = {
+			isa = PBXGroup;
+			children = (
+				1C9A46C92111894000BEFA88 /* BluetoothManager.swift */,
+			);
+			path = BluetoothManager;
+			sourceTree = "<group>";
+		};
+		1C9A46CC21118DAD00BEFA88 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1C9A4669210EF6F000BEFA88 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1C9A46CD21118DC600BEFA88 /* appBenutzer */ = {
+			isa = PBXGroup;
+			children = (
+				1C9A46C2210F5A6300BEFA88 /* appBenutzer.swift */,
+			);
+			path = appBenutzer;
+			sourceTree = "<group>";
+		};
+		1C9A46CE2111929900BEFA88 /* Schlosslist */ = {
+			isa = PBXGroup;
+			children = (
+				1C9A46CF211192C800BEFA88 /* SchlosslistViewController.swift */,
+				1C9A46D121119A1300BEFA88 /* EPeripheral.swift */,
+			);
+			path = Schlosslist;
+			sourceTree = "<group>";
+		};
+		1C9A46D521119AF000BEFA88 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1C9A46D621119B1200BEFA88 /* EData.swift */,
+				1C9A46D821119B4E00BEFA88 /* EServiceIdentifiers.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +266,12 @@
 				1C9A4660210EF6F000BEFA88 /* Sources */,
 				1C9A4661210EF6F000BEFA88 /* Frameworks */,
 				1C9A4662210EF6F000BEFA88 /* Resources */,
+				027B09E9211FA97900DB2A09 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				027B09E8211FA97900DB2A09 /* PBXTargetDependency */,
 			);
 			name = BLE_Demo;
 			productName = BLE_Demo;
@@ -215,6 +348,12 @@
 			mainGroup = 1C9A465B210EF6F000BEFA88;
 			productRefGroup = 1C9A4665210EF6F000BEFA88 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 027B09D7211FA94E00DB2A09 /* Products */;
+					ProjectRef = 027B09D6211FA94E00DB2A09 /* SwiftSocket.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1C9A4663210EF6F000BEFA88 /* BLE_Demo */,
@@ -223,6 +362,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		027B09DE211FA95100DB2A09 /* SwiftSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftSocket.framework;
+			remoteRef = 027B09DD211FA95100DB2A09 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		027B09E0211FA95100DB2A09 /* SwiftSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftSocket.framework;
+			remoteRef = 027B09DF211FA95100DB2A09 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		027B09E2211FA95100DB2A09 /* SwiftSocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftSocket.framework;
+			remoteRef = 027B09E1211FA95100DB2A09 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		027B09E4211FA95100DB2A09 /* iOS Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "iOS Example.app";
+			remoteRef = 027B09E3211FA95100DB2A09 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1C9A4662210EF6F000BEFA88 /* Resources */ = {
@@ -256,8 +426,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C9A466A210EF6F000BEFA88 /* ViewController.swift in Sources */,
+				1C9A46C3210F5A6300BEFA88 /* appBenutzer.swift in Sources */,
+				1C9A46D921119B4E00BEFA88 /* EServiceIdentifiers.swift in Sources */,
+				1C9A46D0211192C800BEFA88 /* SchlosslistViewController.swift in Sources */,
+				1C9A466A210EF6F000BEFA88 /* LoginViewController.swift in Sources */,
+				1C9A46CA2111894000BEFA88 /* BluetoothManager.swift in Sources */,
+				1C9A46D721119B1200BEFA88 /* EData.swift in Sources */,
 				1C9A4668210EF6F000BEFA88 /* AppDelegate.swift in Sources */,
+				1C9A46D221119A1300BEFA88 /* EPeripheral.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +456,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		027B09E8211FA97900DB2A09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftSocket iOS";
+			targetProxy = 027B09E7211FA97900DB2A09 /* PBXContainerItemProxy */;
+		};
 		1C9A467A210EF6F300BEFA88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1C9A4663210EF6F000BEFA88 /* BLE_Demo */;
@@ -429,9 +610,10 @@
 		1C9A468D210EF6F400BEFA88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GUUK6G3MN9;
+				DEVELOPMENT_TEAM = 29N3PQS4F3;
 				INFOPLIST_FILE = BLE_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,9 +629,10 @@
 		1C9A468E210EF6F400BEFA88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GUUK6G3MN9;
+				DEVELOPMENT_TEAM = 29N3PQS4F3;
 				INFOPLIST_FILE = BLE_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
